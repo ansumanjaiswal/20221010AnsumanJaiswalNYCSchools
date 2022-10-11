@@ -18,8 +18,8 @@ class SchoolDetailsViewModel @Inject constructor(private val useCase: UseCase<Li
 
     fun getSatScores(dbn: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val schoolList = useCase.getData()
-            val requiredData = schoolList.find { dbn == it.dbn }
+            val satScoresList = useCase.getData()
+            val requiredData = satScoresList.find { dbn == it.dbn }
             Dispatchers.Main
             requiredData?.let { _satScoresData.emit(it) }
         }

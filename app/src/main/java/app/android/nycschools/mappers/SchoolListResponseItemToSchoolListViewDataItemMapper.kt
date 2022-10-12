@@ -4,7 +4,7 @@ import app.android.nycschools.models.NYCSchoolListResponseItem
 import app.android.nycschools.models.SchoolViewData
 import javax.inject.Inject
 
-class SchoolListResponseItemToSchoolListViewDataItem @Inject constructor() :
+class SchoolListResponseItemToSchoolListViewDataItemMapper @Inject constructor() :
     Mapper<NYCSchoolListResponseItem, SchoolViewData> {
 
     override fun map(params: NYCSchoolListResponseItem): SchoolViewData {

@@ -5,7 +5,7 @@ import app.android.nycschools.models.SchoolViewData
 import javax.inject.Inject
 
 class SchoolListResponseToSchoolListViewDataMapper @Inject constructor(
-    private val itemMapper: SchoolListResponseItemToSchoolListViewDataItem
+    private val itemMapper: SchoolListResponseItemToSchoolListViewDataItemMapper
 ) :
     Mapper<List<NYCSchoolListResponseItem>, List<SchoolViewData>> {
 

@@ -23,11 +23,19 @@ class SchoolListAdapter(private var schoolList: List<SchoolViewData>) :
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView
+        val schoolName: TextView
+        val address: TextView
+        val city: TextView
+        val zip: TextView
+        val email: TextView
         val rootLayout: ConstraintLayout
 
         init {
-            textView = view.findViewById(R.id.schoolName)
+            schoolName = view.findViewById(R.id.schoolName)
+            address = view.findViewById(R.id.address)
+            city = view.findViewById(R.id.city)
+            zip = view.findViewById(R.id.zip)
+            email = view.findViewById(R.id.email)
             rootLayout = view.findViewById(R.id.rootLayout)
         }
 
@@ -41,7 +49,11 @@ class SchoolListAdapter(private var schoolList: List<SchoolViewData>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = schoolList[position].name
+        holder.schoolName.text = schoolList[position].name
+        holder.address.text = schoolList[position].address
+        holder.city.text = schoolList[position].city
+        holder.zip.text = schoolList[position].zip
+        holder.email.text = schoolList[position].email
         holder.rootLayout.setOnClickListener{
             val intent = Intent(it.context, SchoolDetailsActivity::class.java)
             val bundle = Bundle()

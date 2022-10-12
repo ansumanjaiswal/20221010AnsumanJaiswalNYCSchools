@@ -1,23 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
     <TextView
-        android:id="@+id/schoolName"
+        android:id="@+id/errorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
-        android:textColor="@color/white"
-        android:text="School Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        android:visibility="gone"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="22sp"
+        tools:text="ERROR" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/satScore"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="School Details"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/schoolNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:text="School Name"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/schoolName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/schoolNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:text="School Name" />
+
+    <TextView
+        android:id="@+id/satTestTakersLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,9 +70,86 @@
         android:textColor="@color/white"
         android:text="Sat Score"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schoolName" />
+        app:layout_constraintTop_toBottomOf="@+id/schoolNameLabel" />
 
-    <View
+    <TextView
+        android:id="@+id/satTestTakers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        tools:text="Sat Score"
+        app:layout_constraintStart_toEndOf="@+id/satTestTakersLabel"
+        app:layout_constraintTop_toBottomOf="@+id/schoolNameLabel" />
+
+    <TextView
+        android:id="@+id/readingAvgScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:text="Reading avg score Score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/satTestTakersLabel" />
+
+    <TextView
+        android:id="@+id/readingAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        tools:text="Reading avg score Score"
+        app:layout_constraintStart_toEndOf="@+id/readingAvgScoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/satTestTakersLabel" />
+
+    <TextView
+        android:id="@+id/mathAvgScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:text="Maths avg score Score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/readingAvgScore" />
+
+    <TextView
+        android:id="@+id/mathAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        tools:text="Maths avg score Score"
+        app:layout_constraintStart_toEndOf="@+id/mathAvgScoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/readingAvgScore" />
+
+    <TextView
+        android:id="@+id/writingAvgScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:text="Writing avg score Score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathAvgScoreLabel" />
+
+    <TextView
+        android:id="@+id/writingAvgScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        tools:text="Writing avg score Score"
+        app:layout_constraintStart_toEndOf="@+id/writingAvgScoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/mathAvgScoreLabel" />
+
+   <!-- <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="4dp"
@@ -37,6 +159,6 @@
         android:layout_marginTop="16dp"
         android:text="Sat Score"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/satScore"/>
+        app:layout_constraintTop_toBottomOf="@+id/writingAvgScore"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

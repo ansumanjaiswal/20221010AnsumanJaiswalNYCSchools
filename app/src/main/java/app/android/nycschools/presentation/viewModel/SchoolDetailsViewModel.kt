@@ -13,15 +13,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SchoolDetailsViewModel @Inject constructor(private val useCase: UseCase<List<SatScoresViewData>>): ViewModel() {
-    private val _satScoresData = MutableSharedFlow<SatScoresViewData>()
-    val satScoresData = _satScoresData.asSharedFlow()
+    private val _foundData = MutableSharedFlow<SatScoresViewData?>()
+    val foundData = _foundData.asSharedFlow()
 
     fun getSatScores(dbn: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val satScoresList = useCase.getData()
             val requiredData = satScoresList.find { dbn == it.dbn }
             Dispatchers.Main
-            requiredData?.let { _satScoresData.emit(it) }
+            _foundData.emit(requiredData)
         }
     }
 

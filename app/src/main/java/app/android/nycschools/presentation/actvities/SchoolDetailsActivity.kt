@@ -24,12 +24,12 @@ class SchoolDetailsActivity : AppCompatActivity() {
         //Get the bundle
         val bundle = intent.extras
         //Extract the data…
-        val dbn: String = bundle?.getString("DBN").orEmpty()
+        val dbn: String = bundle?.getString(DATA_TRANSPORT_KEY).orEmpty()
 
         viewModel.getSatScores(dbn)
         lifecycleScope.launchWhenStarted {
-            viewModel.foundData.collect{
-                if(it == null){
+            viewModel.foundData.collect {
+                if (it == null) {
                     handleErrorScenario()
                 } else {
                     updateUIForSuccessScenario(it)
@@ -38,7 +38,7 @@ class SchoolDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleErrorScenario(){
+    private fun handleErrorScenario() {
         binding.progressBar.visibility = View.GONE
 
         binding.schoolNameLabel.visibility = View.GONE
@@ -58,7 +58,7 @@ class SchoolDetailsActivity : AppCompatActivity() {
     }
 
     // We can use databinding to update these values and also set visibility
-    private fun updateUIForSuccessScenario (it: SatScoresViewData) {
+    private fun updateUIForSuccessScenario(it: SatScoresViewData) {
         binding.progressBar.visibility = View.GONE
         binding.errorText.visibility = View.GONE
 
@@ -70,6 +70,13 @@ class SchoolDetailsActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val ERROR_TEXT = "Error to fetch data"
+        const val ERROR_TEXT = "Error in fetching data"
+        const val DATA_TRANSPORT_KEY = "DBN"
     }
 }
+/*
+* The layout file could be updated to get margins and text sizes from dimens file
+* Get string resources (eg labels) from string resources
+* We can also wrap the data form (ie. all textviews displaying final data into a layout to handle
+* visibility more elegantly.
+* */

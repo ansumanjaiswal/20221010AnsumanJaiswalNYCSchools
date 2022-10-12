@@ -16,7 +16,7 @@
         android:theme="@style/Theme.20221010AnsumanJsiwalNYCSchools"
         tools:targetApi="31">
         <activity
-            android:name="app.android.nycschools.presentation.actvities.MainActivity"
+            android:name="app.android.nycschools.presentation.actvities.SchoolListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

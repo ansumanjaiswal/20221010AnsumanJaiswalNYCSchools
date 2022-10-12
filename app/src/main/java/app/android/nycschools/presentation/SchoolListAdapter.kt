@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import app.android.nycschools.R
 import app.android.nycschools.models.SchoolViewData
 import app.android.nycschools.presentation.actvities.SchoolDetailsActivity
+import app.android.nycschools.presentation.actvities.SchoolDetailsActivity.Companion.DATA_TRANSPORT_KEY
 
 class SchoolListAdapter(private var schoolList: List<SchoolViewData>) :
     Adapter<SchoolListAdapter.ViewHolder>() {
@@ -57,10 +57,9 @@ class SchoolListAdapter(private var schoolList: List<SchoolViewData>) :
         holder.rootLayout.setOnClickListener{
             val intent = Intent(it.context, SchoolDetailsActivity::class.java)
             val bundle = Bundle()
-            bundle.putString("DBN", schoolList[position].dbn)
+            bundle.putString(DATA_TRANSPORT_KEY, schoolList[position].dbn)
             intent.putExtras(bundle)
             it.context.startActivity(intent)
-            Toast.makeText(it.context, "CLICKED", Toast.LENGTH_LONG).show()
         }
     }
 
